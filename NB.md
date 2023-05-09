@@ -1,5 +1,8 @@
-**Docker is a containerization platform that allows developers to package their applications and dependencies into a single, portable container.** 
-Docker provides a consistent environment for application development, testing, and deployment across different platforms and infrastructures. Docker containers are lightweight, efficient, and can run on any operating system that supports Docker.
+**In summary, while Docker provides a way to package and distribute applications, Kubernetes provides a way to manage and orchestrate those containers at scale in a production environment.** 
 
-**Kubernetes, on the other hand, is a container orchestration platform that automates the deployment, scaling, and management of containerized applications.**
-Kubernetes is designed to manage multiple containers running in a distributed environment, such as a cluster of servers or a cloud platform. Kubernetes ensures that containers are running in a healthy state, manages their resources, and provides a way to scale the application up or down based on demand.
+Docker is a containerization platform that allows developers to package their applications and dependencies into a single, portable container. Docker provides a consistent environment for application development, testing, and deployment across different platforms and infrastructures. Docker containers are lightweight, efficient, and can run on any operating system that supports Docker.
+
+Kubernetes, on the other hand, is a container orchestration platform that automates the deployment, scaling, and management of containerized applications Kubernetes is designed to manage multiple containers running in a distributed environment, such as a cluster of servers or a cloud platform. Kubernetes ensures that containers are running in a healthy state, manages their resources, and provides a way to scale the application up or down based on demand.
+
+**Class to object is like Docker Image to Docker Container**
+A Docker image is like a blueprint or template for creating a Docker container, but it's not the actual container itself. When you create a container from an image, Docker uses the image as a read-only template to create a new container with a writable layer on top of it. The writable layer is created using a technology called UnionFS, which allows multiple layers to be stacked on top of each other to create a single filesystem view.
