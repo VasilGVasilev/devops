@@ -24,3 +24,10 @@ The docker image console logging 'hello docker' contains alpine linux, node.js a
 Docker is a containerization technology that allows you to run applications and services in an isolated environment, known as a container. Docker containers do not have the ability to maintain an operating system like virtual machines do, but instead, they share the kernel of the host operating system.
 
 This means that you can only run Linux distributions on Docker because Docker containers rely on the Linux kernel. However, it's worth noting that you can run various distributions of Linux, such as Ubuntu, Debian, CentOS, and more, within Docker containers.
+
+**DockerHub is like a Github for containers**
+
+**alpine**
+    docker pull alpine
+    docker run -it alpine
+    CTRL + D
