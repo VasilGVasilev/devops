@@ -5,10 +5,13 @@ Docker is a containerization platform that allows developers to package their ap
 Kubernetes, on the other hand, is a container orchestration platform that automates the deployment, scaling, and management of containerized applications Kubernetes is designed to manage multiple containers running in a distributed environment, such as a cluster of servers or a cloud platform. Kubernetes ensures that containers are running in a healthy state, manages their resources, and provides a way to scale the application up or down based on demand.
 
 **Class to object is like Docker Image to Docker Container**
+
 A Docker image is like a blueprint or template for creating a Docker container, but it's not the actual container itself. When you create a container from an image, Docker uses the image as a read-only template to create a new container with a writable layer on top of it. The writable layer is created using a technology called UnionFS, which allows multiple layers to be stacked on top of each other to create a single filesystem view.
 
 **The Docker daemon (dockerd) is the core component of the Docker engine. It is a background process that manages the creation and running of Docker containers.**
+
 When you start a Docker container, the Docker daemon creates a container based on the image you specify and starts it up. The Docker daemon is responsible for managing the container's life cycle, including starting, stopping, and restarting containers.
+
 The Docker daemon listens for requests from the Docker client and executes them. The Docker client communicates with the Docker daemon using the Docker API, which allows you to perform operations on containers, images, and other Docker objects.
 
 
@@ -16,4 +19,8 @@ The docker image console logging 'hello docker' contains alpine linux, node.js a
 
     NB: Docker stores images on the machine you are using not in the directory you build it, thus, no cause for concern uploading into github repo without limit via .gitignore, but have .dockerignore file
 
- 
+**Docker runs only Linux distributions on its containers, linux distributions are still distributions of the same OS, VMs are the tools that can containerize nested OS**
+
+Docker is a containerization technology that allows you to run applications and services in an isolated environment, known as a container. Docker containers do not have the ability to maintain an operating system like virtual machines do, but instead, they share the kernel of the host operating system.
+
+This means that you can only run Linux distributions on Docker because Docker containers rely on the Linux kernel. However, it's worth noting that you can run various distributions of Linux, such as Ubuntu, Debian, CentOS, and more, within Docker containers.
