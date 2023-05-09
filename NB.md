@@ -1,5 +1,5 @@
-*** Docker is a containerization platform that allows developers to package their applications and dependencies into a single, portable container. *** 
+**Docker is a containerization platform that allows developers to package their applications and dependencies into a single, portable container.** 
 Docker provides a consistent environment for application development, testing, and deployment across different platforms and infrastructures. Docker containers are lightweight, efficient, and can run on any operating system that supports Docker.
 
-*** Kubernetes, on the other hand, is a container orchestration platform that automates the deployment, scaling, and management of containerized applications. ***
+**Kubernetes, on the other hand, is a container orchestration platform that automates the deployment, scaling, and management of containerized applications.**
 Kubernetes is designed to manage multiple containers running in a distributed environment, such as a cluster of servers or a cloud platform. Kubernetes ensures that containers are running in a healthy state, manages their resources, and provides a way to scale the application up or down based on demand.
