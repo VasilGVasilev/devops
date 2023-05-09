@@ -10,3 +10,10 @@ A Docker image is like a blueprint or template for creating a Docker container, 
 **The Docker daemon (dockerd) is the core component of the Docker engine. It is a background process that manages the creation and running of Docker containers.**
 When you start a Docker container, the Docker daemon creates a container based on the image you specify and starts it up. The Docker daemon is responsible for managing the container's life cycle, including starting, stopping, and restarting containers.
 The Docker daemon listens for requests from the Docker client and executes them. The Docker client communicates with the Docker daemon using the Docker API, which allows you to perform operations on containers, images, and other Docker objects.
+
+
+The docker image console logging 'hello docker' contains alpine linux, node.js and app.js
+
+    NB: Docker stores images on the machine you are using not in the directory you build it, thus, no cause for concern uploading into github repo without limit via .gitignore, but have .dockerignore file
+
+ 
