@@ -27,6 +27,19 @@ This means that you can only run Linux distributions on Docker because Docker co
 
 **DockerHub is like a Github for containers**
 
+**Building a container**
+
+1. Turn on Docker
+2. Have at least one file (here called app.js)
+3. Have a Dockerfile in directory with at the very least this code:
+    ```sh
+    FROM node:alpine
+    COPY . /app
+    WORKDIR /app
+    CMD node app.js
+    ```
+4. docker build -t name-of-image
+
 **alpine**
     docker pull alpine
     docker run -it alpine
@@ -57,6 +70,39 @@ On the other hand, a bind mount is a way to mount a directory on the host machin
 
 Containers run in isolation so you need networking betweeen them for communication -> App <-> MySQL
 
+Create network
 ```sh
 docker network create todo-app
 ```
+
+Start a MySQL container and attach it to the network
+```sh
+docker run -d `
+     --network todo-app --network-alias mysql `
+     -v todo-mysql-data:/var/lib/mysql `
+     -e MYSQL_ROOT_PASSWORD=secret `
+     -e MYSQL_DATABASE=todos `
+     mysql:8.0
+```
+
+**Docker Compose**
+
+Docker Compose is a tool that was developed to help define and share multi-container applications. We do that by creating a YAML file to define the services and spin everything up or tear it all down.
+
+**Layer caching**
+
+Images have dependencies and it is best practice to narrow down those layers of dependencies when we ship the image around.
+
+We do that by restructuring Dockerfile so that it reflects the language specific techniques concerning dependencies
+
+Node-based applications have their dependencies in the package.json file. Thus, best practice would be to copy package.json file first, install dependencies and only then copy everything else, meaning we only recreate the npm/yarn dependencies if there was a change to the package.json.
+
+```sh
+ # syntax=docker/dockerfile:1
+ FROM node:18-alpine
+ WORKDIR /app
+ COPY package.json yarn.lock ./
+ RUN yarn install --production
+ COPY . .
+ CMD ["node", "src/index.js"]
+ ```
