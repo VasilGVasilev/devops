@@ -30,7 +30,7 @@ This means that you can only run Linux distributions on Docker because Docker co
 **Building a container**
 
 1. Turn on Docker
-2. Have at least one file (here called app.js)
+2. Have at least one file in directory (here called app.js)
 3. Have a Dockerfile in directory with at the very least this code:
     ```sh
     FROM node:alpine
@@ -97,6 +97,8 @@ We do that by restructuring Dockerfile so that it reflects the language specific
 
 Node-based applications have their dependencies in the package.json file. Thus, best practice would be to copy package.json file first, install dependencies and only then copy everything else, meaning we only recreate the npm/yarn dependencies if there was a change to the package.json.
 
+1. Updated Dockerfile 
+
 ```sh
  # syntax=docker/dockerfile:1
  FROM node:18-alpine
@@ -106,3 +108,22 @@ Node-based applications have their dependencies in the package.json file. Thus, 
  COPY . .
  CMD ["node", "src/index.js"]
  ```
+
+2. Build image
+
+```sh
+docker build -t getting-started
+```
+
+3. Change something in file
+
+4. Rebuild image
+
+```sh
+docker build -t getting-started
+```
+
+Notice that the build was MUCH faster! 
+
+
+## What happens if the containers die? How do you scale across several machines? Container orchestration solves this problem. Tools like Kubernetes, Swarm, Nomad, and ECS all help solve this problem.
